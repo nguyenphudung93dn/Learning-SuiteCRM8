@@ -1,0 +1,62 @@
+<scrm-widget-panel [title]="getHeaderLabel()">
+    <div class="tasks-sidebar-widget" widget-body>
+
+        <ng-container *ngIf="!context$">
+            <div class="p-3 widget-message">
+                <scrm-label labelKey="LBL_BAD_CONFIG"></scrm-label>
+            </div>
+        </ng-container>
+
+        <div class="tasks-thread">
+            <div *ngIf="!loading && !records && !records.length"
+                 class="d-flex tasks-thread-no-data justify-content-center h3">
+                <scrm-label labelKey="LBL_NO_DATA"></scrm-label>
+            </div>
+
+            <div *ngIf="loading" class="d-flex tasks-thread-loading justify-content-center">
+                <scrm-loading-spinner [overlay]="true"></scrm-loading-spinner>
+            </div>
+
+            <div #list
+                 *ngIf="records && records.length"
+                 [ngStyle]="{'max-height.px': maxHeight, 'overflow-y': 'auto'}"
+                 class="tasks-thread-list">
+
+                <div class="m-2 p-2 border rounded shadow-sm" *ngFor="let record of records">
+                    <div class="d-flex">
+                        <div class="flex-grow-1">
+                            <ng-container *ngIf="initField('name', record)">
+                                <scrm-field [record]="record"
+                                            [field]="record.fields.name"
+                                            [mode]="'detail'"
+                                            [type]="record.fields.name.type"
+                                ></scrm-field>
+                            </ng-container>
+                        </div>
+                        <div class="flex-shrink-1">
+                            <div class="pl-2 small"><scrm-label labelKey="LBL_LIST_DUE_DATE" module="tasks"></scrm-label></div>
+                            <div class="pl-2 small">
+                                <ng-container *ngIf="initField('date_due', record)">
+                                    <scrm-field [record]="record"
+                                                [field]="record.fields['date_due']"
+                                                [mode]="'detail'"
+                                                [type]="record.fields['date_due'].type"
+                                    ></scrm-field>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div *ngIf="!allLoaded()"
+                     class="tasks-thread-load-more d-flex justify-content-center flex-grow-1">
+                    <scrm-button [config]="getLoadMoreButton()"></scrm-button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</scrm-widget-panel>

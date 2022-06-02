@@ -4,6 +4,8 @@ import {SidebarWidgetRegistry} from 'core';
 import {HttpClientModule} from '@angular/common/http';
 import {HelloWorldSidebarWidgetModule} from '../containers/sidebar-widget/hello-world/hello-world-sidebar-widget.module';
 import {HelloWorldSidebarWidgetComponent} from '../containers/sidebar-widget/hello-world/hello-world-sidebar-widget.component';
+import {TasksSidebarWidgetModule} from '../containers/sidebar-widget/tasks/tasks-sidebar-widget.module';
+import {TasksSidebarWidgetComponent} from '../containers/sidebar-widget/tasks/tasks-sidebar-widget.component';
 
 @NgModule({
     declarations: [],
@@ -18,6 +20,7 @@ export class ExtensionModule {
 
         console.log('sidebar widget register213123');
         sidebarWidgetRegistry.register('default', 'hello-world', HelloWorldSidebarWidgetComponent);
+        sidebarWidgetRegistry.register('default', 'tasks', TasksSidebarWidgetComponent);
 
         console.log('loaded');
     }
