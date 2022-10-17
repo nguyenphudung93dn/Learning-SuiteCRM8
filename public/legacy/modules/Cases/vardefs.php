@@ -139,6 +139,33 @@ $dictionary['Case'] = array(
             'len' => 100,
             'audited' => true,
             'comment' => 'The priority of the case',
+            'logic' => [
+                'display' => [
+                    'key' => 'displayType',
+                    'modes' => ['detail', 'edit', 'create'],
+                    'params' => [
+                        'fieldDependencies' => [
+                            'state',
+                        ],
+                        'targetDisplayType' => 'none',
+                        'activeOnFields' =>  [
+                            'state' => [ 'Closed']
+                        ]
+                    ]
+                ],
+                'required' => [
+                    'key' => 'required',
+                    'modes' => ['edit', 'create'],
+                    'params' => [
+                        'fieldDependencies' => [
+                            'status',
+                        ],
+                        'activeOnFields' =>  [
+                            'status' => [ 'Open_Assigned']
+                        ]
+                    ]
+                ]
+            ]
 
         ),
         'resolution' => array(
