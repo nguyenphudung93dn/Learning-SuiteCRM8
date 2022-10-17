@@ -1,0 +1,18 @@
+<div *ngIf="results && results.length > 0">
+    <ngx-charts-bar-horizontal
+        class="horizontal-bar-chart"
+        [animations]="false"
+        [results]="results"
+        [view]="view"
+        [scheme]="scheme"
+        [gradient]="gradient"
+        [xAxis]="xAxis"
+        [yAxis]="yAxis"
+        [legend]="legend"
+        [legendPosition]="'below'"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel">
+    </ngx-charts-bar-horizontal>
+</div>

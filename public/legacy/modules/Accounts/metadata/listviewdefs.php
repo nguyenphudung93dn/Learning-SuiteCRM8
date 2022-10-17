@@ -66,6 +66,28 @@ $viewdefs['Accounts'] = [
                     'Accounts' => ['view', 'list']
                 ]
             ],
+            'accounts-new-by-month-horizontal' => [
+              'type' => 'chart',
+              'labelKey' => 'LBL_QUICK_CHARTS',
+              'options' => [
+                  'toggle' => true,
+                  'headerTitle' => false,
+                  'charts' => [
+                      [
+                          'chartKey' => 'accounts-new-by-month-horizontal',
+                          'chartType' => 'horizontal-bar',
+                          'statisticsType' => 'accounts-new-by-month-horizontal',
+                          'labelKey' => 'ACCOUNT_TYPES_PER_MONTH_HORIZONTAL',
+                          'chartOptions' => [
+                          ]
+                      ]
+                  ]
+              ],
+              'acls' => [
+                  'Accounts' => ['view', 'list']
+              ]
+          ],
+
         ],
         'bulkActions' => [
             'actions' => [
