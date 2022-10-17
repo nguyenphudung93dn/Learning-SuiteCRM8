@@ -174,8 +174,15 @@ array(
                           'module' => 'AOS_PDF_Templates'
                       ]
                   ]
-              ]
-          ]
+                ],
+              'add-custom-button' => [
+                  'key' => 'add-custom-button',
+                  'labelKey' => 'LBL_ADD_CUSTOM_BUTTON',
+                  'asyncProcess' => true,
+                  'modes' => ['detail'],
+                  'acl' => ['view'],
+                ]
+    ]
       ],
       'panels' => array(
               'lbl_account_information' =>
